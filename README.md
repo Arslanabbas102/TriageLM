@@ -1,10 +1,6 @@
 # **TriageLM: From Raw Data to Actionable Insight**
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/18c2c4e3-7823-4107-8cc7-afda5ac0875d" width="600">
-</p>
-
-<p align="center">
   <a href="https://huggingface.co/ShovalBenjer/gemma-3-270m-fashion-multitask_v1" target="_blank">
     <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Model-Hugging%20Face-yellow?style=for-the-badge"/>
   </a>
@@ -54,10 +50,6 @@ This demonstrates a key principle: **Data quality dominates model size and pipel
 ---
 
 # **2. System Architecture**
-
-<p align="center">
-<img width="1024" alt="architecture" src="https://github.com/user-attachments/assets/dc410320-1372-4d1b-bc44-11ea9be05054">
-</p>
 
 The architecture includes:
 
