@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Light-first design system.
+  Every surface colour is a token so pages never hardcode a palette value;
+  the .dark block below is the only place the dark variants are defined.
+*/
+@layer base {
+  :root {
+    --background: 220 33% 98%;
+    --foreground: 222 24% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 24% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 24% 16%;
+
+    --primary: 256 72% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 95%;
+    --secondary-foreground: 222 24% 24%;
+
+    --muted: 220 20% 95%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 256 80% 96%;
+    --accent-foreground: 256 60% 40%;
+
+    --destructive: 0 72% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 58% 38%;
+    --success-foreground: 0 0% 100%;
+    --warning: 35 92% 48%;
+    --warning-foreground: 0 0% 100%;
+    --info: 212 88% 52%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 220 16% 90%;
+    --input: 220 16% 90%;
+    --ring: 256 72% 58%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 24% 28%;
+    --sidebar-accent: 256 80% 96%;
+    --sidebar-accent-foreground: 256 60% 40%;
+    --sidebar-border: 220 16% 92%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 224 30% 9%;
+    --foreground: 220 20% 96%;
+
+    --card: 224 26% 13%;
+    --card-foreground: 220 20% 96%;
+
+    --popover: 224 26% 13%;
+    --popover-foreground: 220 20% 96%;
+
+    --primary: 256 80% 68%;
+    --primary-foreground: 224 30% 9%;
+
+    --secondary: 223 20% 19%;
+    --secondary-foreground: 220 20% 92%;
+
+    --muted: 223 20% 19%;
+    --muted-foreground: 220 12% 64%;
+
+    --accent: 256 40% 24%;
+    --accent-foreground: 256 90% 86%;
+
+    --destructive: 0 68% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 52% 46%;
+    --warning: 35 88% 56%;
+    --info: 212 84% 62%;
+
+    --border: 223 18% 22%;
+    --input: 223 18% 22%;
+    --ring: 256 80% 68%;
+
+    --sidebar-background: 224 26% 12%;
+    --sidebar-foreground: 220 18% 84%;
+    --sidebar-accent: 256 40% 24%;
+    --sidebar-accent-foreground: 256 90% 86%;
+    --sidebar-border: 223 18% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  /* Softer, less jarring scrollbars that follow the theme */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 9999px;
+    border: 2px solid hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground) / 0.4); }
+}
+
+@layer components {
+  /* Shared surface for cards and panels across the app. */
+  .surface {
+    @apply bg-card border border-border rounded-xl;
+  }
+
+  .surface-hover {
+    @apply transition-colors hover:border-primary/30 hover:bg-accent/40;
+  }
+
+  /* Subtle page backdrop — replaces the old full-screen animated beams. */
+  .page-gradient {
+    background-image:
+      radial-gradient(60rem 40rem at 15% -10%, hsl(var(--primary) / 0.07), transparent 60%),
+      radial-gradient(50rem 36rem at 100% 0%, hsl(var(--info) / 0.06), transparent 55%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
